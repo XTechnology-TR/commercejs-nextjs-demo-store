@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
+import Image from 'next/image';
 import { Transition } from 'react-transition-group';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import CartItem from '../cart/CartItem';
@@ -97,7 +98,7 @@ class Cart extends Component {
                     className="bg-transparent p-0"
                     onClick={() => toggle(false)}
                   >
-                    <img src="/icon/cross.svg" title="Times icon" alt="" />
+                    <Image width="30" height="30"  src="/icon/cross.svg" title="Times icon" alt="" />
                   </button>
                 </div>
               </div>
@@ -124,17 +125,17 @@ class Cart extends Component {
                     </div>
                     <div className="row">
                       <div className="col-6 d-none d-md-block">
-                        <Link href="/collection">
-                          <a className="h-56 d-flex align-items-center justify-content-center border border-color-black bg-white w-100 flex-grow-1 font-weight-medium font-color-black px-3">
+                        <Link href="/collection"
+                           className="h-56 d-flex align-items-center justify-content-center border border-color-black bg-white w-100 flex-grow-1 font-weight-medium font-color-black px-3">
                             Continue Shopping
-                          </a>
+                       
                         </Link>
                       </div>
                       <div className="col-12 col-md-6">
-                        <Link href="/checkout">
-                          <a className="h-56 d-flex align-items-center justify-content-center bg-black w-100 flex-grow-1 font-weight-medium font-color-white px-3">
+                        <Link href="/checkout"
+                       className="h-56 d-flex align-items-center justify-content-center bg-black w-100 flex-grow-1 font-weight-medium font-color-white px-3">
                             Checkout
-                          </a>
+                         
                         </Link>
                       </div>
                     </div>
@@ -143,7 +144,7 @@ class Cart extends Component {
               ) : (
                 <div className="d-flex align-items-center justify-content-center bg-brand300 flex-grow-1 p-4 p-md-5 flex-column">
                   <div className="position-relative cursor-pointer mb-3">
-                    <img src="/icon/cart.svg" title="Cart icon" alt="" className="w-32" />
+                    <Image src="/icon/cart.svg" title="Cart icon" alt="" className="w-32" />
                     <div
                       className="position-absolute font-size-tiny font-weight-bold"
                       style={{ right: '-4px', top: '-4px' }}

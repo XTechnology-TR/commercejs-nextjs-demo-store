@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image'
 import Root from '../components/common/Root';
 import Footer from '../components/common/Footer';
 
@@ -33,7 +34,7 @@ const About = () => (
         <div className="col-12 col-lg-6">
           <div className="about-image h-100">
             <div className="d-flex align-items-center justify-content-center h-100">
-              <img src="/cjs-illustration.svg" alt="Commerce.js illustration"/>
+              <Image src="/cjs-illustration.svg" width="300" height="300"  alt="Commerce.js illustration"/>
             </div>
           </div>
         </div>
@@ -44,7 +45,7 @@ const About = () => (
         <div className="col-12 col-lg-6">
           <div className="about-image h-100">
             <div className="d-flex align-items-center justify-content-center h-100">
-              <img src="/netlify-illustration.svg" alt="Netlify illustration"/>
+              <Image src="/netlify-illustration.svg" alt="Netlify illustration" width="300" height="300" />
             </div>
           </div>
         </div>
@@ -97,7 +98,7 @@ const About = () => (
         <div className="col-12 col-lg-6">
           <div className="about-image h-100">
             <div className="d-flex align-items-center justify-content-center h-100">
-              <img src="/github-illustration.svg" alt="GitHub illustration"/>
+              <Image src="/github-illustration.svg" alt="GitHub illustration" width="300" height="300" />
             </div>
           </div>
         </div>
@@ -108,7 +109,7 @@ const About = () => (
         <div className="col-12 col-lg-6">
           <div className="about-image h-100">
             <div className="d-flex align-items-center justify-content-center h-100">
-              <img src="/blog-illustration.svg" alt="Commerce.js blog illustration"/>
+              <Image src="/blog-illustration.svg" alt="Commerce.js blog illustration" width="300" height="300" />
             </div>
           </div>
         </div>

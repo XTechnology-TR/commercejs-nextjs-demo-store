@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 const Footer = () => (
   <footer className="pt-5">
     <div className="custom-container mb-5 pb-5 pt-5">
@@ -100,7 +100,7 @@ const Footer = () => (
               placeholder="email address"
             />
             <button className="bg-transparent position-absolute right-0 top-50 translateY--50 pr-2 h-48">
-              <img src="/icon/arrow-long-right.svg" className="w-24" alt="Arrow icon"/>
+              <Image width="30" height="30"   src="/icon/arrow-long-right.svg" className="w-24" alt="Arrow icon"/>
             </button>
           </div>
         </div>
@@ -111,30 +111,12 @@ const Footer = () => (
         <div className="custom-container d-flex flex-column flex-md-row align-items-center justify-content-between">
           <div className="pt-5 pb-0 pt-md-4 pb-md-4 d-flex align-items-center flex-wrap justify-content-center">
             <a
-              href="https://app.netlify.com/start/deploy?repository=https://github.com/chec/commercejs-nextjs-demo-store"
+              href="https://xtechnology.co"
               className="font-color-brand font-size-caption text-uppercase text-center"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Deploy to Netlify
-            </a>
-            <p className="px-2 font-color-brand font-size-caption">-</p>
-            <a
-              href="https://github.com/chec/commercejs-nextjs-demo-store"
-              className="font-color-brand font-size-caption text-uppercase text-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Clone in GitHub
-            </a>
-            <p className="px-2 font-color-brand font-size-caption">-</p>
-            <a
-              href="https://github.com/chec/commercejs-nextjs-demo-store"
-              className="font-color-brand font-size-caption text-uppercase text-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contribute
+              XTechnology Tarafından geliştirilmektedir.
             </a>
           </div>
           <div className="font-color-brand font-size-caption py-4 text-right">
@@ -144,7 +126,7 @@ const Footer = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              &copy; { new Date().getFullYear() } Chec/Commerce.js.
+              &copy; { new Date().getFullYear() } Tüm Hakları Saklıdır.
             </a>
           </div>
         </div>

@@ -21,7 +21,7 @@ import {
 import { connect } from 'react-redux';
 import { withRouter } from 'next/router';
 import { CardElement, Elements, ElementsConsumer } from '@stripe/react-stripe-js';
-
+import Image from 'next/image';
 const billingOptions = ['Same as shipping Address', 'Use a different billing address'];
 
 /**
@@ -240,7 +240,7 @@ class CheckoutPage extends Component {
         }
         return Promise.reject(resp);
       })
-      .catch(error => {
+      .catch(() => {
         alert('Sorry, the discount code could not be applied');
       });
   }
@@ -293,7 +293,7 @@ class CheckoutPage extends Component {
         return;
       }
 
-      error.message.forEach(({param, error}, i) => {
+      error.message.forEach(({param, error}) => {
         this.setState({
           errors: {
             ...this.state.errors,
@@ -550,12 +550,12 @@ class CheckoutPage extends Component {
             <div className="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-0">
               {/* Breadcrumbs */}
               <div className="d-flex pb-4 breadcrumb-container">
-                <Link href="/collection">
-                  <a className="font-color-dark font-size-caption text-decoration-underline cursor-pointer">
+                <Link href="/collection"
+                  className="font-color-dark font-size-caption text-decoration-underline cursor-pointer">
                     Cart
-                  </a>
+                
                 </Link>
-                <img src="/icon/arrow-right.svg" className="w-16 mx-1" alt="Arrow icon"/>
+                <Image width="30" height="30"  src="/icon/arrow-right.svg" className="w-16 mx-1" alt="Arrow icon"/>
                 <div className="font-size-caption font-weight-bold cursor-pointer">
                   Checkout
                 </div>
@@ -738,14 +738,14 @@ class CheckoutPage extends Component {
                   Your order
                 </div>
                 <div className="pt-3 borderbottom border-color-gray400">
-                  {(checkout.live ? checkout.live.line_items : []).map((item, index, items) => {
+                  {(checkout.live ? checkout.live.line_items : []).map((item) => {
                     return (
                       <div
                         key={item.id}
                         className="d-flex mb-2"
                       >
                         { (item && item.media)
-                          && (<img className="checkout__line-item-image mr-2" src={item.media.source} alt={item.product_name}/>)
+                          && (<Image className="checkout__line-item-image mr-2" src={item.media.source} alt={item.product_name}/>)
                         }
                         <div className="d-flex flex-grow-1">
                           <div className="flex-grow-1">

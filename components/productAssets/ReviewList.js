@@ -13,7 +13,7 @@ const ReviewList = ({ children, reviews }) => (
         <p className="font-size-title mb-2 mt-3">{item.title}</p>
         <p className="mb-3">{item.description}</p>
         <p className="font-color-light font-size-caption">
-          {item.reviewBy} | December, 2019
+          {item.reviewBy} | December, 2022
         </p>
       </div>
     ))}

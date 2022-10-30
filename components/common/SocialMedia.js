@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 const imagesInfo = [
   {
     image: '/images/insta/1.png',
@@ -82,11 +82,10 @@ export default class SocialMedia extends React.Component {
                 Follow us on Instagram for more updates
               </p>
               <div className="d-flex">
-                <Link href="/about">
-                  <a className="d-flex py-3 align-items-center font-color-black borderbottom border-color-black">
+                <Link href="/about"
+                   className="d-flex py-3 align-items-center font-color-black borderbottom border-color-black">
                     <p className="mr-3">Follow us</p>
-                    <img src="/icon/arrow-long-right.svg" alt="Arrow icon"/>
-                  </a>
+                    <Image width="30" height="30"   src="/icon/arrow-long-right.svg" alt="Arrow icon"/>
                 </Link>
               </div>
             </div>

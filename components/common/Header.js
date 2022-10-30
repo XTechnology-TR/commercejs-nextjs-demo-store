@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
 import Link from 'next/link';
-import Cart from '../cart/Cart';
-import commerce from '../../lib/commerce';
-import Animation from '../cart/Animation';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Transition } from 'react-transition-group';
-import { connect } from 'react-redux'
+import commerce from '../../lib/commerce';
 import { clearCustomer } from '../../store/actions/authenticateActions';
+import Animation from '../cart/Animation';
+import Cart from '../cart/Cart';
 
 const duration = 300;
 
@@ -24,17 +24,21 @@ const transitionStyles = {
 
 const mobileMenuLinks = [
   {
-    name: 'Home',
-    link: '/'
+    name: 'Anasayfa',
+    link: '/',
   },
   {
-    name: 'Shop',
-    link: '/collection'
+    name: 'Magaza',
+    link: '/collection',
   },
   {
-    name: 'About',
-    link: '/about'
-  }
+    name: 'Hakkımızda',
+    link: '/about',
+  },
+  {
+    name: 'Blog',
+    link: 'https://blog.xtechnology.co',
+  },
 ];
 
 class Header extends Component {
@@ -140,32 +144,26 @@ class Header extends Component {
     if (loggedIn) {
       return (
         <div className="d-flex align-items-center">
-          { customer && customer.firstname && (
-            <span className="mr-2 font-weight-regular">
-              Hi, { customer.firstname }!
-            </span>
-          ) }
-          <Link href="/account">
-            <a className="font-color-black mx-2">
-              My account
-            </a>
+          {customer && customer.firstname && (
+            <span className="mr-2 font-weight-regular">Hi, {customer.firstname}!</span>
+          )}
+          <Link href="/account"
+             className="font-color-black mx-2">Hesabım
           </Link>
           <button
             className="bg-transparent mr-2 font-color-black font-weight-semibold"
             type="button"
             onClick={this.handleLogout}
           >
-            Logout
+            Çıkış
           </button>
         </div>
       );
     }
 
     return (
-      <Link href="/login">
-        <a className="font-color-black login">
-          Login
-        </a>
+      <Link href="/login"
+       className="font-color-black login">Giriş
       </Link>
     );
   }
@@ -176,7 +174,7 @@ class Header extends Component {
 
     return (
       <header className="position-fixed top-0 left-0 right-0 font-weight-semibold no-print">
-        <Cart isOpen={showCart} toggle={value => this.toggleCart(value)} />
+        <Cart isOpen={showCart} toggle={(value) => this.toggleCart(value)} />
         <div
           ref={this.header}
           className={`d-flex header align-items-center justify-content-between position-relative ${
@@ -184,37 +182,28 @@ class Header extends Component {
           }`}
         >
           <div className="d-none d-sm-flex">
-            <Link href="/collection">
-              <a className="mr-4 font-color-black">Shop</a>
+            <Link href="/collection"
+             className="mr-4 font-color-black">Mağaza
             </Link>
-            <Link href="/about">
-              <a className="font-color-black">About</a>
+            <Link href="/about"
+             className="font-color-black">Hakkımızda
             </Link>
           </div>
           <div className="logo-container">
-            <img
+            <image
               src={`/icon/${showMobileMenu ? 'cross' : 'menu'}.svg`}
               onClick={this.toggleMobileMenu}
               className="w-32 mr-1 d-block d-sm-none"
               alt="Menu icon"
             />
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/commerce.svg"
-                  className="logo cursor-pointer"
-                  alt="Logo"
-                />
-              </a>
+            <Link href="/"        
+                img src="/images/commerce.svg" className="logo cursor-pointer" alt="Logo"> 
             </Link>
           </div>
           <div className="d-flex">
-            { process.browser && this.renderLoginLogout() }
-            <div
-              className="position-relative cursor-pointer"
-              onClick={this.toggleCart}
-            >
-              <Animation isStopped={ this.state.playAddToCartAnimation } />
+            {process.browser && this.renderLoginLogout()}
+            <div className="position-relative cursor-pointer" onClick={this.toggleCart}>
+              <Animation isStopped={this.state.playAddToCartAnimation} />
               <div className="cart-count position-absolute font-size-tiny font-weight-bold">
                 {cart.total_items}
               </div>
@@ -224,28 +213,27 @@ class Header extends Component {
 
         {/* Mobile Menu */}
         <Transition in={showMobileMenu} timeout={duration}>
-          {state => (
+          {(state) => (
             <div
               className="d-sm-none position-fixed left-0 right-0 overflow-hidden"
               style={{
                 ...defaultStyle,
                 ...transitionStyles[state],
                 // Prevent gap being shown at bottom of mobile menu
-                top: '1em'
+                top: '1em',
               }}
             >
               <div
                 className="position-absolute left-0 right-0 h-100vh mobile-menu-inner bg-black700 d-flex flex-column justify-content-center"
                 style={{
                   // Prevent mobile menu items (e.g. Home) being hidden behind navbar on small screen heights (e.g. iPhone4 landscape of 320px height)
-                  top: '4em'
+                  top: '4em',
                 }}
               >
                 {mobileMenuLinks.map((item, i) => (
-                  <Link key={i} href={item.link}>
-                    <a className="d-block mb-4 font-size-heading font-color-white text-center">
+                  <Link key={i} href={item.link}
+                    className="d-block mb-4 font-size-heading font-color-white text-center">
                       {item.name}
-                    </a>
                   </Link>
                 ))}
               </div>

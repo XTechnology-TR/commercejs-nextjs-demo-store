@@ -6,7 +6,7 @@ import Footer from './Footer';
 const TemplatePage = ({ page: data }) => (
   <Root>
     <Head>
-      <title>commerce</title>
+      <title>Lucxyy Shop</title>
     </Head>
     <div className="py-5 my-5 text-center">
       <h4 className="mt-4">{ data.message }</h4>

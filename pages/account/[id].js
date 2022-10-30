@@ -9,7 +9,7 @@ import Root from '../../components/common/Root';
 import Footer from '../../components/common/Footer';
 import TemplatePage from '../../components/common/TemplatePage';
 import LoggedOut from '../loggedOut';
-
+import Image from 'next/image';
 export default function SingleOrderPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -79,7 +79,7 @@ export default function SingleOrderPage() {
     }
 
     return (
-      <img className="img-thumbnail h-72 mr-4" alt={data.product_name} src={data.media.source} />
+      <Image className="Image-thumbnail h-72 mr-4" alt={data.product_name} src={data.media.source} />
     )
   };
 
@@ -180,12 +180,12 @@ export default function SingleOrderPage() {
               <div className="col-12">
                 {/* Breadcrumbs */}
                 <div className="d-flex pb-4 breadcrumb-container">
-                  <Link href="/account">
-                    <a className="font-size-caption text-decoration-underline cursor-pointer font-color-black">
+                  <Link href="/account"
+                     className="font-size-caption text-decoration-underline cursor-pointer font-color-black">
                       Account
-                    </a>
+               
                   </Link>
-                  <img src="/icon/arrow-right.svg" className="w-16 mx-1" alt="Arrow icon"/>
+                  <Image width="30" height="30"  src="/icon/arrow-right.svg" className="w-16 mx-1" alt="Arrow icon"/>
                   <div className="font-size-caption font-weight-bold cursor-pointer">
                   { data.customer_reference }
                   </div>

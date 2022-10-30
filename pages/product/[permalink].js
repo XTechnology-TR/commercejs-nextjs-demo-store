@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import commerce from '../../lib/commerce';
-import { Collapse } from 'react-collapse';
+import ErrorPage from 'next/error';
 import Head from 'next/head';
-import ErrorPage from 'next/error'
+import Image from 'next/image';
 import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { Collapse } from 'react-collapse';
+import Footer from '../../components/common/Footer';
 import Root from '../../components/common/Root';
+import SocialMedia from '../../components/common/SocialMedia';
 import TemplatePage from '../../components/common/TemplatePage';
 import CarouselImages from '../../components/productAssets/CarouselImages';
-import ProductDetail from '../../components/productAssets/ProductDetail';
 import ClientReview from '../../components/productAssets/ClientReview';
-import SuggestedProducts from '../../components/productAssets/SuggestedProducts';
 import ExploreBanner from '../../components/productAssets/ExploreBanner';
-import Footer from '../../components/common/Footer';
-import SocialMedia from '../../components/common/SocialMedia';
+import ProductDetail from '../../components/productAssets/ProductDetail';
+import SuggestedProducts from '../../components/productAssets/SuggestedProducts';
 import CategoryList from '../../components/products/CategoryList';
+import commerce from '../../lib/commerce';
 import reduceProductImages from '../../lib/reduceProductImages';
-
 const detailView = `<p>
   Slightly textured fabric with tonal geometric design and a bit of shine
 </p>`;
@@ -24,12 +24,17 @@ export default function Product() {
   const router = useRouter();
   const { permalink } = router.query;
   const [showShipping, setShowShipping] = useState(false);
+  const [showFit, setShowFit] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const toggleShipping = () => {
     setShowShipping(!showShipping);
+  }
+
+  const toggleFit = () => {
+    setShowFit(!showFit);
   }
 
   const toggleDetails = () => {
@@ -83,10 +88,10 @@ export default function Product() {
         <div className="product-images">
           <div className="flex-grow-1">
             {Array.isArray(images) ? (images.map((image, i) => (
-              <img
+              <images
                 key={i}
                 src={image}
-                className="w-100 mb-3 carousel-main-images"
+                className="w-400 mb-4 carousel-main-images"
               />
             ))) : (
               ''
@@ -103,7 +108,7 @@ export default function Product() {
             className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium"
           >
             Shipping and returns
-            <img src="/icon/plus.svg" />
+            <Image width="30" height="30"  alt="plus" src="/icon/plus.svg"  />
           </div>
           <Collapse isOpened={showShipping}>
             <div className="pb-4 font-color-medium">
@@ -113,11 +118,26 @@ export default function Product() {
           </Collapse>
           <div className="h-1 border-bottom border-color-black" />
           <div
+onClick={toggleFit}
+className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium"
+>
+Fit 
+<Image width="30" height="30"  alt="plus" src="/icon/plus.svg"  />
+</div>
+<Collapse isOpened={showFit}>
+<div className="pb-4 font-color-medium">
+APART FROM THE VAVSKINS PRODUCTION CENTER, 
+IT CANNOT EVEN BE PRODUCED IN OTHER CONTRACT WORKSHOPS. 
+THIS ALLOWS US TO OFFER MORE GUARANTEED SALES ALL THE TIME.
+</div>
+</Collapse>
+<div className="h-1 border-bottom border-color-black" />
+          <div
             onClick={toggleDetails}
             className="d-flex cursor-pointer py-3 justify-content-between font-weight-medium"
           >
             Details
-            <img src="/icon/plus.svg" />
+            <Image width="30" height="30"  alt="plus" src="/icon/plus.svg" />
           </div>
           <Collapse isOpened={showDetails}>
             <div
@@ -129,6 +149,7 @@ export default function Product() {
           </Collapse>
           <div className="h-1 borderbottom border-color-black" />
         </div>
+        
       </div>
     </div>
 

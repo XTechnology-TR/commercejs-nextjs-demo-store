@@ -31,15 +31,30 @@ class MyDocument extends Document {
           />
           <link rel="stylesheet" href="https://unpkg.com/swiper@6.6.2/swiper-bundle.min.css" />
           <meta name="title" content="Headless Commerce example with Netlify" key="title" />
-          <meta name="description" content="An open source headless commerce example powered by Commerce.js and Netlify. Start your headless commerce application now!" />
+          <meta
+            name="description"
+            content="An open source headless commerce example powered by Commerce.js and Netlify. Start your headless commerce application now!"
+          />
           <meta property="og:title" content="Commerce.js | Demo storefront" />
-          <meta property="og:image" content="https://cdn.chec.io/email/assets/marketing/demo-preview.png" />
-          <meta property="og:description" content="A custom, open source demo storefront built with Next.js and Commerce.js. Take a look!" />
+          <meta
+            property="og:image"
+            content="https://cdn.chec.io/email/assets/marketing/demo-preview.png"
+          />
+          <meta
+            property="og:description"
+            content="A custom, open source demo storefront built with Next.js and Commerce.js. Take a look!"
+          />
           <meta property="og:url" content="https://commercejs-demo-store.netlify.app" />
           <meta property="twitter:title" content="Commerce.js | Demo storefront" />
           <meta name="twitter:creator" content="@commercejs" />
-          <meta property="twitter:image" content="https://cdn.chec.io/email/assets/marketing/demo-preview.png" />
-          <meta property="twitter:description" content="A custom, open source demo storefront built with Next.js and Commerce.js. Take a look!" />
+          <meta
+            property="twitter:image"
+            content="https://cdn.chec.io/email/assets/marketing/demo-preview.png"
+          />
+          <meta
+            property="twitter:description"
+            content="A custom, open source demo storefront built with Next.js and Commerce.js. Take a look!"
+          />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <body>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie-player';
 import animationData from '../../lotties/add-to-cart.json';
 
 export default function Animation( props ) {

@@ -17,7 +17,7 @@ const LoggedOut = () => (
               You have successfully logged out.
             </h2>
             <Link href="/" className="mt-4">
-              <a>Continue shopping</a>
+            Continue shopping
             </Link>
           </div>
         </div>
